@@ -1,0 +1,37 @@
+<div class="card-body">
+    <form>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Unidad" #unidad required>
+        </div>
+        <div class="form-group">
+            <textarea rows="2" class="form-control" placeholder="Descripcion" required #descripcion></textarea>
+            <!--<input type="text" class="form-control" placeholder="descripcion" #descripcion required>-->
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Telefono" #telefono required>
+        </div>
+        <button class="btn btn-primary btn-block" (click)="createFarmaco(unidad,descripcion,telefono)">
+            Añadir
+        </button>
+    </form>
+</div>
+
+<div class="row">
+    <div class="col-md-4 p-4" *ngFor="let farmaco of farmaco">
+        <div class="card card-photo">
+            <div class="card-header">
+                <p>{{farmaco._id}}</p>
+            </div>
+            <div class="card-header">
+                <p>{{farmaco.unidad}}</p>
+            </div>
+            <div class="card-body">
+                <p>{{farmaco.descripcion}}</p>
+            </div>
+            <div class="card-body">
+                <p>{{farmaco.telefono}}</p>
+            </div>
+            <button class="btn btn-danger" (click)="deleteFarmaco(farmaco._id)">Delete</button>
+        </div>
+    </div>
+</div>
